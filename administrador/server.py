@@ -90,9 +90,11 @@ def GetMsg():
     return mensagem
 
 
+
 class HelloServiceStub(administrador_pb2_grpc.HelloService):
 
     def Hello(self, request, context):
+      try:
         funcao = request.funcao
         id = request.id
         senha = request.senha
@@ -102,6 +104,8 @@ class HelloServiceStub(administrador_pb2_grpc.HelloService):
         idcliente = request.idcliente
         nomecliente = request.nomecliente
         senhacliente = request. senhacliente
+
+        SetMsg(None)
 
         if funcao == "InsereCliente":
             text = str(funcao+","+idcliente+","+nomecliente+","+senhacliente)
@@ -167,9 +171,10 @@ class HelloServiceStub(administrador_pb2_grpc.HelloService):
         elif funcao == "BuscaCliente":
             return administrador_pb2.HelloResponse(mensagem='Nome: %s' % nome)
         time.sleep(1)
-        return administrador_pb2.HelloResponse(mensagem=GetMsg())
+      except :
+          print("FALHA NA CONEXÃO SERVER CLIENTE!!!")
 
-
+      return administrador_pb2.HelloResponse(mensagem=GetMsg())
 
 
 def serve():
