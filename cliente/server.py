@@ -75,7 +75,7 @@ def on_message(client, userdata, message):
 def on_subscribe(client, userdata, mid, granted_qos):
     print("Subscribed:", str(mid), str(granted_qos))
 
-Vader@0823*#
+
 def on_unsubscirbe(client, userdata, mid):
     print("Unsubscribed:", str(mid))
 
