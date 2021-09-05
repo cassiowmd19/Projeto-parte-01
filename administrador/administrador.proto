@@ -1,0 +1,22 @@
+syntax = "proto3";
+option go_package = "adm";
+
+message HelloRequest {
+  string funcao = 1;
+  string id = 2;
+  string senha = 3;
+  string nome = 4;
+  string idtarefa = 5;
+  string nometarefa = 6;
+  string idcliente = 7;
+  string nomecliente = 8;
+  string senhacliente = 9;
+}
+
+message HelloResponse {
+  string mensagem = 1;
+}
+
+service HelloService{
+  rpc Hello(HelloRequest) returns (HelloResponse) {};
+}
