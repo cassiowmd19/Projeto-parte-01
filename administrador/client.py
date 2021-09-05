@@ -73,7 +73,7 @@ def run():
                 if insereCliente.mensagem == "True":
                     print("SUCESSO NO CADASTRO!")
                 else:
-                    print(insereCliente)
+                    print("NÃO CADASTRADO!")
 
             elif valor == "2":
                 key = input("INFORME O CID: ")
